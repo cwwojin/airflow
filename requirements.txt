@@ -1,5 +1,5 @@
 python-dotenv
-apache-airflow
+apache-airflow==2.9.0
 pandas
 scikit-learn
 tqdm

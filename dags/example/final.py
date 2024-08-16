@@ -44,8 +44,3 @@ def final_train():
 def model_load():
     with open("./model/rf_clf_with_best_params.pkl", "rb") as model_file:
         loaded_model = pickle.load(model_file)
-
-
-if __name__ == "__main__":
-    train_result = final_train()
-    print(train_result)

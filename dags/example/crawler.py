@@ -62,7 +62,3 @@ def crawl_data():
 
     comment_df = pd.DataFrame(all_reviews)
     comment_df.to_csv("./data/crawl_df.csv", index=False)
-
-
-if __name__ == "__main__":
-    crawl_data()
