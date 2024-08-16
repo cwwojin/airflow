@@ -7,35 +7,30 @@ Task 3. 모델링
 
 import pandas as pd
 from sklearn.feature_extraction.text import TfidfVectorizer
-from sklearn.linear_model import LogisticRegression
-from sklearn.svm import SVC
-from sklearn.preprocessing import StandardScaler
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.model_selection import GridSearchCV
-import os.path as path
 
+FILE_PATH = '/home/ubuntu/airflow/dags'
 
 def modeling():
-    comment_df = pd.read_csv("./data/preprocessed_df.csv")
-    comment_df = comment_df.dropna(subset=["preprocessed_comment"])
+    comment_df = pd.read_csv(FILE_PATH + '/data/preprocessed_df.csv')
+    comment_df = comment_df.dropna(subset=['preprocessed_comment'])
     tfidf_vectorizer = TfidfVectorizer()
 
-    X = tfidf_vectorizer.fit_transform(comment_df["preprocessed_comment"])
-    y = comment_df["target"]
+    X = tfidf_vectorizer.fit_transform(comment_df['preprocessed_comment'])
+    y = comment_df['target']
 
     rf_clf = RandomForestClassifier()
 
     param_grid = {
-        "n_estimators": [100, 200, 300],
-        "max_depth": [None, 10, 20, 30],
-        "min_samples_split": [2, 5, 10],
-        "min_samples_leaf": [1, 2, 4],
-        "bootstrap": [True, False],
+        'n_estimators': [100, 200, 300],
+        'max_depth': [10, 15, 20],
+        'min_samples_split': [2, 5, 10],
+        'min_samples_leaf': [1, 2, 4],
+        'bootstrap': [True, False]
     }
 
-    grid_search = GridSearchCV(
-        estimator=rf_clf, param_grid=param_grid, cv=5, n_jobs=-1, verbose=2
-    )
+    grid_search = GridSearchCV(estimator=rf_clf, param_grid=param_grid, cv=5, n_jobs=-1, verbose=2)
 
     grid_search.fit(X, y)
 
@@ -46,9 +41,6 @@ def modeling():
     best_score = grid_search.best_score_
 
     results_df = pd.DataFrame([best_params])
-    results_df["best_score"] = best_score
+    results_df['best_score'] = best_score
 
-    results_df.to_csv(
-        "./data/grid_search_results.csv",
-        index=False,
-    )
+    results_df.to_csv(FILE_PATH + '/data/grid_search_results.csv', index=False)

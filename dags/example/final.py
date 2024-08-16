@@ -5,42 +5,39 @@ Task 4. 재 학습
 """
 
 import pandas as pd
+import seaborn as sns
+import matplotlib.pyplot as plt
 import pickle
+from sklearn.metrics import accuracy_score, confusion_matrix, classification_report, roc_curve, auc
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.linear_model import LogisticRegression
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.model_selection import train_test_split
-import os.path as path
 
+FILE_PATH = '/home/ubuntu/airflow/dags'
 
 def final_train():
-    comment_df = pd.read_csv("./data/preprocessed_df.csv")
-    param_df = pd.read_csv("./data/grid_search_results.csv")
+    comment_df = pd.read_csv(FILE_PATH + '/data/preprocessed_df.csv')
+    param_df = pd.read_csv(FILE_PATH + '/data/grid_search_results.csv')
 
-    comment_df = comment_df.dropna(subset=["preprocessed_comment"])
-    best_params = param_df.iloc[0].drop("best_score").to_dict()
+    comment_df = comment_df.dropna(subset=['preprocessed_comment'])
+    best_params = param_df.iloc[0].drop('best_score').to_dict()
 
     tfidf_vectorizer = TfidfVectorizer()
 
-    X = tfidf_vectorizer.fit_transform(comment_df["preprocessed_comment"])
-    y = comment_df["target"]
+    X = tfidf_vectorizer.fit_transform(comment_df['preprocessed_comment'])
+    y = comment_df['target']
 
-    X_train, y_train, X_test, y_test = train_test_split(
-        X, y, test_size=0.2, random_state=42
-    )
+    if hasattr(y, 'toarray'):
+        y = y.toarray()
+    
+    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
     rf_clf = RandomForestClassifier(**best_params)
     rf_clf.fit(X_train, y_train)
 
-    # 모델 저장
-    with open("./model/rf_clf_with_best_params.pkl", "wb") as model_file:
+    with open(FILE_PATH + '/model/rf_clf_with_best_params.pkl', 'wb') as model_file:
         pickle.dump(rf_clf, model_file)
 
-    test_vector = tfidf_vectorizer.transform(X_test)
-    pred = rf_clf.predict(test_vector)
-    print(X_test, "====>", pred)
-
-
-def model_load():
-    with open("./model/rf_clf_with_best_params.pkl", "rb") as model_file:
-        loaded_model = pickle.load(model_file)
+    with open(FILE_PATH + '/model/tfidf_vectorizer.pkl', 'wb') as vec_file:
+        pickle.dump(tfidf_vectorizer, vec_file)
