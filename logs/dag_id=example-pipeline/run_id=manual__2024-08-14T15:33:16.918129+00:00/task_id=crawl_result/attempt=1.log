@@ -1,0 +1,47 @@
+[2024-08-15T00:33:20.928+0900] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-08-15T00:33:20.959+0900] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: example-pipeline.crawl_result manual__2024-08-14T15:33:16.918129+00:00 [queued]>
+[2024-08-15T00:33:20.969+0900] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: example-pipeline.crawl_result manual__2024-08-14T15:33:16.918129+00:00 [queued]>
+[2024-08-15T00:33:20.969+0900] {taskinstance.py:2306} INFO - Starting attempt 1 of 1
+[2024-08-15T00:33:20.997+0900] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): crawl_result> on 2024-08-14 15:33:16.918129+00:00
+[2024-08-15T00:33:21.006+0900] {standard_task_runner.py:64} INFO - Started process 45828 to run task
+[2024-08-15T00:33:21.011+0900] {standard_task_runner.py:90} INFO - Running: ['airflow', 'tasks', 'run', 'example-pipeline', 'crawl_result', 'manual__2024-08-14T15:33:16.918129+00:00', '--job-id', '78', '--raw', '--subdir', 'DAGS_FOLDER/example-pipeline.py', '--cfg-path', '/tmp/tmp8w2pndqy']
+[2024-08-15T00:33:21.012+0900] {standard_task_runner.py:91} INFO - Job 78: Subtask crawl_result
+[2024-08-15T00:33:21.075+0900] {task_command.py:426} INFO - Running <TaskInstance: example-pipeline.crawl_result manual__2024-08-14T15:33:16.918129+00:00 [running]> on host demo-server
+[2024-08-15T00:33:21.169+0900] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='example-pipeline' AIRFLOW_CTX_TASK_ID='crawl_result' AIRFLOW_CTX_EXECUTION_DATE='2024-08-14T15:33:16.918129+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-08-14T15:33:16.918129+00:00'
+[2024-08-15T00:33:21.170+0900] {taskinstance.py:430} INFO - ::endgroup::
+[2024-08-15T00:33:21.415+0900] {logging_mixin.py:188} INFO - 'comment' key not found in response for store ID 1238400864 with comment ID 0.
+[2024-08-15T00:33:21.527+0900] {logging_mixin.py:188} INFO - 'comment' key not found in response for store ID 13575898 with comment ID 0.
+[2024-08-15T00:33:21.579+0900] {logging_mixin.py:188} INFO - Error processing store ID 8279464 with comment ID 0: 'comment'
+[2024-08-15T00:33:21.683+0900] {logging_mixin.py:188} INFO - 'comment' key not found in response for store ID 22716674 with comment ID 0.
+[2024-08-15T00:33:21.800+0900] {logging_mixin.py:188} INFO - 'comment' key not found in response for store ID 95713992 with comment ID 0.
+[2024-08-15T00:33:21.911+0900] {logging_mixin.py:188} INFO - 'comment' key not found in response for store ID 1428481536 with comment ID 0.
+[2024-08-15T00:33:22.054+0900] {logging_mixin.py:188} INFO - 'comment' key not found in response for store ID 16421356 with comment ID 0.
+[2024-08-15T00:33:22.160+0900] {logging_mixin.py:188} INFO - 'comment' key not found in response for store ID 22837049 with comment ID 0.
+[2024-08-15T00:33:22.217+0900] {logging_mixin.py:188} INFO - Error processing store ID 1752978029 with comment ID 0: 'comment'
+[2024-08-15T00:33:22.346+0900] {logging_mixin.py:188} INFO - 'comment' key not found in response for store ID 26330643 with comment ID 0.
+[2024-08-15T00:33:22.385+0900] {logging_mixin.py:188} INFO - Error processing store ID 109169564 with comment ID 0: 'comment'
+[2024-08-15T00:33:22.514+0900] {logging_mixin.py:188} INFO - 'comment' key not found in response for store ID 1503746075 with comment ID 0.
+[2024-08-15T00:33:22.640+0900] {logging_mixin.py:188} INFO - 'comment' key not found in response for store ID 27564595 with comment ID 0.
+[2024-08-15T00:33:22.750+0900] {logging_mixin.py:188} INFO - 'comment' key not found in response for store ID 12418029 with comment ID 0.
+[2024-08-15T00:33:22.882+0900] {logging_mixin.py:188} INFO - 'comment' key not found in response for store ID 7983060 with comment ID 0.
+[2024-08-15T00:33:23.087+0900] {logging_mixin.py:188} INFO - 'comment' key not found in response for store ID 1622865435 with comment ID 0.
+[2024-08-15T00:33:23.186+0900] {logging_mixin.py:188} INFO - 'comment' key not found in response for store ID 8123221 with comment ID 0.
+[2024-08-15T00:33:23.303+0900] {logging_mixin.py:188} INFO - 'comment' key not found in response for store ID 53292857 with comment ID 0.
+[2024-08-15T00:33:23.432+0900] {logging_mixin.py:188} INFO - 'comment' key not found in response for store ID 27272711 with comment ID 0.
+[2024-08-15T00:33:23.574+0900] {logging_mixin.py:188} INFO - 'comment' key not found in response for store ID 1797970569 with comment ID 0.
+[2024-08-15T00:33:23.692+0900] {logging_mixin.py:188} INFO - 'comment' key not found in response for store ID 1767349854 with comment ID 0.
+[2024-08-15T00:33:23.805+0900] {logging_mixin.py:188} INFO - 'comment' key not found in response for store ID 965893653 with comment ID 0.
+[2024-08-15T00:33:23.906+0900] {logging_mixin.py:188} INFO - 'comment' key not found in response for store ID 18514677 with comment ID 0.
+[2024-08-15T00:33:24.013+0900] {logging_mixin.py:188} INFO - 'comment' key not found in response for store ID 13337463 with comment ID 0.
+[2024-08-15T00:33:24.053+0900] {logging_mixin.py:188} INFO - Error processing store ID 443293859 with comment ID 0: 'comment'
+[2024-08-15T00:33:24.139+0900] {logging_mixin.py:188} INFO - 'comment' key not found in response for store ID 19382069 with comment ID 0.
+[2024-08-15T00:33:24.242+0900] {logging_mixin.py:188} INFO - 'comment' key not found in response for store ID 21089840 with comment ID 0.
+[2024-08-15T00:33:24.362+0900] {logging_mixin.py:188} INFO - 'comment' key not found in response for store ID 12771116 with comment ID 0.
+[2024-08-15T00:33:24.455+0900] {logging_mixin.py:188} INFO - 'comment' key not found in response for store ID 9012776 with comment ID 0.
+[2024-08-15T00:33:24.577+0900] {logging_mixin.py:188} INFO - 'comment' key not found in response for store ID 132754911 with comment ID 0.
+[2024-08-15T00:33:24.599+0900] {python.py:237} INFO - Done. Returned value was: None
+[2024-08-15T00:33:24.599+0900] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-08-15T00:33:24.604+0900] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=example-pipeline, task_id=crawl_result, run_id=manual__2024-08-14T15:33:16.918129+00:00, execution_date=20240814T153316, start_date=20240814T153320, end_date=20240814T153324
+[2024-08-15T00:33:24.665+0900] {local_task_job_runner.py:243} INFO - Task exited with return code 0
+[2024-08-15T00:33:24.694+0900] {taskinstance.py:3503} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2024-08-15T00:33:24.706+0900] {local_task_job_runner.py:222} INFO - ::endgroup::

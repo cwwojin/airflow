@@ -1,0 +1,36 @@
+[2024-08-16T09:15:28.847+0900] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-08-16T09:15:28.854+0900] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: kakao-pipeline.creating_table scheduled__2024-08-15T00:00:00+00:00 [queued]>
+[2024-08-16T09:15:28.858+0900] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: kakao-pipeline.creating_table scheduled__2024-08-15T00:00:00+00:00 [queued]>
+[2024-08-16T09:15:28.858+0900] {taskinstance.py:2306} INFO - Starting attempt 1 of 1
+[2024-08-16T09:15:28.882+0900] {taskinstance.py:2330} INFO - Executing <Task(SqliteOperator): creating_table> on 2024-08-15 00:00:00+00:00
+[2024-08-16T09:15:28.887+0900] {standard_task_runner.py:64} INFO - Started process 2587 to run task
+[2024-08-16T09:15:28.890+0900] {standard_task_runner.py:90} INFO - Running: ['airflow', 'tasks', 'run', 'kakao-pipeline', 'creating_table', 'scheduled__2024-08-15T00:00:00+00:00', '--job-id', '98', '--raw', '--subdir', 'DAGS_FOLDER/lecture_practice/kakao-pipeline.py', '--cfg-path', '/tmp/tmp7c4i4ht4']
+[2024-08-16T09:15:28.905+0900] {standard_task_runner.py:91} INFO - Job 98: Subtask creating_table
+[2024-08-16T09:15:28.952+0900] {task_command.py:426} INFO - Running <TaskInstance: kakao-pipeline.creating_table scheduled__2024-08-15T00:00:00+00:00 [running]> on host demo-server
+[2024-08-16T09:15:29.017+0900] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='kakao-pipeline' AIRFLOW_CTX_TASK_ID='creating_table' AIRFLOW_CTX_EXECUTION_DATE='2024-08-15T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-08-15T00:00:00+00:00'
+[2024-08-16T09:15:29.019+0900] {taskinstance.py:430} INFO - ::endgroup::
+[2024-08-16T09:15:29.020+0900] {sql.py:282} INFO - Executing: 
+        CREATE TABLE IF NOT EXISTS kakao_search_result(
+            created_at TEXT,
+            contents TEXT,
+            title TEXT,
+            url TEXT
+        )
+        
+[2024-08-16T09:15:29.024+0900] {base.py:84} INFO - Using connection ID 'sqlite_con' for task execution.
+[2024-08-16T09:15:29.028+0900] {base.py:84} INFO - Using connection ID 'sqlite_con' for task execution.
+[2024-08-16T09:15:29.029+0900] {sql.py:509} INFO - Running statement: 
+        CREATE TABLE IF NOT EXISTS kakao_search_result(
+            created_at TEXT,
+            contents TEXT,
+            title TEXT,
+            url TEXT
+        )
+        , parameters: None
+[2024-08-16T09:15:29.030+0900] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-08-16T09:15:29.033+0900] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=kakao-pipeline, task_id=creating_table, run_id=scheduled__2024-08-15T00:00:00+00:00, execution_date=20240815T000000, start_date=20240816T001528, end_date=20240816T001529
+[2024-08-16T09:15:29.089+0900] {local_task_job_runner.py:243} INFO - Task exited with return code 0
+[2024-08-16T09:15:29.098+0900] {logging_mixin.py:188} WARNING - /home/ubuntu/miniconda3/envs/airflow-env/lib/python3.8/site-packages/airflow/models/baseoperator.py:1297 AirflowProviderDeprecationWarning: Call to deprecated class SimpleHttpOperator. (Class `SimpleHttpOperator` is deprecated and will be removed in a future release. Please use `HttpOperator` instead.)
+[2024-08-16T09:15:29.099+0900] {logging_mixin.py:188} WARNING - /home/ubuntu/miniconda3/envs/airflow-env/lib/python3.8/site-packages/airflow/models/baseoperator.py:1297 AirflowProviderDeprecationWarning: Call to deprecated class SqliteOperator. (Please use `airflow.providers.common.sql.operators.sql.SQLExecuteQueryOperator`.)
+[2024-08-16T09:15:29.112+0900] {taskinstance.py:3503} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2024-08-16T09:15:29.124+0900] {local_task_job_runner.py:222} INFO - ::endgroup::

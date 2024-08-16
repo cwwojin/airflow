@@ -1,0 +1,44 @@
+[2024-08-14T16:34:51.605+0900] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-08-14T16:34:51.615+0900] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: example-pipeline.modeling_result manual__2024-08-14T07:34:35.983200+00:00 [queued]>
+[2024-08-14T16:34:51.618+0900] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: example-pipeline.modeling_result manual__2024-08-14T07:34:35.983200+00:00 [queued]>
+[2024-08-14T16:34:51.619+0900] {taskinstance.py:2306} INFO - Starting attempt 1 of 1
+[2024-08-14T16:34:51.632+0900] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): modeling_result> on 2024-08-14 07:34:35.983200+00:00
+[2024-08-14T16:34:51.637+0900] {standard_task_runner.py:64} INFO - Started process 32429 to run task
+[2024-08-14T16:34:51.640+0900] {standard_task_runner.py:90} INFO - Running: ['airflow', 'tasks', 'run', 'example-pipeline', 'modeling_result', 'manual__2024-08-14T07:34:35.983200+00:00', '--job-id', '46', '--raw', '--subdir', 'DAGS_FOLDER/example-pipeline.py', '--cfg-path', '/tmp/tmp1dbgvpqv']
+[2024-08-14T16:34:51.640+0900] {standard_task_runner.py:91} INFO - Job 46: Subtask modeling_result
+[2024-08-14T16:34:51.666+0900] {task_command.py:426} INFO - Running <TaskInstance: example-pipeline.modeling_result manual__2024-08-14T07:34:35.983200+00:00 [running]> on host demo-server
+[2024-08-14T16:34:51.712+0900] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='example-pipeline' AIRFLOW_CTX_TASK_ID='modeling_result' AIRFLOW_CTX_EXECUTION_DATE='2024-08-14T07:34:35.983200+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-08-14T07:34:35.983200+00:00'
+[2024-08-14T16:34:51.713+0900] {taskinstance.py:430} INFO - ::endgroup::
+[2024-08-14T16:34:51.721+0900] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-08-14T16:34:51.722+0900] {taskinstance.py:2905} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/ubuntu/miniconda3/envs/airflow-env/lib/python3.8/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/ubuntu/miniconda3/envs/airflow-env/lib/python3.8/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/ubuntu/miniconda3/envs/airflow-env/lib/python3.8/site-packages/airflow/models/baseoperator.py", line 401, in wrapper
+    return func(self, *args, **kwargs)
+  File "/home/ubuntu/miniconda3/envs/airflow-env/lib/python3.8/site-packages/airflow/operators/python.py", line 235, in execute
+    return_value = self.execute_callable()
+  File "/home/ubuntu/miniconda3/envs/airflow-env/lib/python3.8/site-packages/airflow/operators/python.py", line 252, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/home/ubuntu/airflow/dags/example/modeling.py", line 11, in modeling
+    X = tfidf_vectorizer.fit_transform(comment_df['preprocessed_comment'])
+  File "/home/ubuntu/miniconda3/envs/airflow-env/lib/python3.8/site-packages/sklearn/feature_extraction/text.py", line 2139, in fit_transform
+    X = super().fit_transform(raw_documents)
+  File "/home/ubuntu/miniconda3/envs/airflow-env/lib/python3.8/site-packages/sklearn/base.py", line 1152, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+  File "/home/ubuntu/miniconda3/envs/airflow-env/lib/python3.8/site-packages/sklearn/feature_extraction/text.py", line 1389, in fit_transform
+    vocabulary, X = self._count_vocab(raw_documents, self.fixed_vocabulary_)
+  File "/home/ubuntu/miniconda3/envs/airflow-env/lib/python3.8/site-packages/sklearn/feature_extraction/text.py", line 1276, in _count_vocab
+    for feature in analyze(doc):
+  File "/home/ubuntu/miniconda3/envs/airflow-env/lib/python3.8/site-packages/sklearn/feature_extraction/text.py", line 105, in _analyze
+    doc = decoder(doc)
+  File "/home/ubuntu/miniconda3/envs/airflow-env/lib/python3.8/site-packages/sklearn/feature_extraction/text.py", line 238, in decode
+    raise ValueError(
+ValueError: np.nan is an invalid document, expected byte or unicode string.
+[2024-08-14T16:34:51.725+0900] {taskinstance.py:1206} INFO - Marking task as FAILED. dag_id=example-pipeline, task_id=modeling_result, run_id=manual__2024-08-14T07:34:35.983200+00:00, execution_date=20240814T073435, start_date=20240814T073451, end_date=20240814T073451
+[2024-08-14T16:34:51.736+0900] {standard_task_runner.py:110} ERROR - Failed to execute job 46 for task modeling_result (np.nan is an invalid document, expected byte or unicode string.; 32429)
+[2024-08-14T16:34:51.741+0900] {local_task_job_runner.py:243} INFO - Task exited with return code 1
+[2024-08-14T16:34:51.747+0900] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2024-08-14T16:34:51.748+0900] {local_task_job_runner.py:222} INFO - ::endgroup::

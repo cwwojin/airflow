@@ -1,0 +1,32 @@
+[2024-08-15T00:08:27.468+0900] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-08-15T00:08:27.480+0900] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: example-pipeline.crawl_result manual__2024-08-14T15:08:23.254750+00:00 [queued]>
+[2024-08-15T00:08:27.485+0900] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: example-pipeline.crawl_result manual__2024-08-14T15:08:23.254750+00:00 [queued]>
+[2024-08-15T00:08:27.486+0900] {taskinstance.py:2306} INFO - Starting attempt 1 of 1
+[2024-08-15T00:08:27.513+0900] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): crawl_result> on 2024-08-14 15:08:23.254750+00:00
+[2024-08-15T00:08:27.523+0900] {standard_task_runner.py:64} INFO - Started process 43224 to run task
+[2024-08-15T00:08:27.538+0900] {standard_task_runner.py:90} INFO - Running: ['airflow', 'tasks', 'run', 'example-pipeline', 'crawl_result', 'manual__2024-08-14T15:08:23.254750+00:00', '--job-id', '70', '--raw', '--subdir', 'DAGS_FOLDER/example-pipeline.py', '--cfg-path', '/tmp/tmpxmaooixs']
+[2024-08-15T00:08:27.538+0900] {standard_task_runner.py:91} INFO - Job 70: Subtask crawl_result
+[2024-08-15T00:08:27.790+0900] {task_command.py:426} INFO - Running <TaskInstance: example-pipeline.crawl_result manual__2024-08-14T15:08:23.254750+00:00 [running]> on host demo-server
+[2024-08-15T00:08:27.954+0900] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='example-pipeline' AIRFLOW_CTX_TASK_ID='crawl_result' AIRFLOW_CTX_EXECUTION_DATE='2024-08-14T15:08:23.254750+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-08-14T15:08:23.254750+00:00'
+[2024-08-15T00:08:27.960+0900] {taskinstance.py:430} INFO - ::endgroup::
+[2024-08-15T00:08:40.489+0900] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-08-15T00:08:40.490+0900] {taskinstance.py:2905} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/ubuntu/miniconda3/envs/airflow-env/lib/python3.8/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/ubuntu/miniconda3/envs/airflow-env/lib/python3.8/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/ubuntu/miniconda3/envs/airflow-env/lib/python3.8/site-packages/airflow/models/baseoperator.py", line 401, in wrapper
+    return func(self, *args, **kwargs)
+  File "/home/ubuntu/miniconda3/envs/airflow-env/lib/python3.8/site-packages/airflow/operators/python.py", line 235, in execute
+    return_value = self.execute_callable()
+  File "/home/ubuntu/miniconda3/envs/airflow-env/lib/python3.8/site-packages/airflow/operators/python.py", line 252, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/home/ubuntu/airflow/dags/example/crawler.py", line 42, in crawl_data
+    comment_datas = response.json()['comment']
+KeyError: 'comment'
+[2024-08-15T00:08:40.500+0900] {taskinstance.py:1206} INFO - Marking task as FAILED. dag_id=example-pipeline, task_id=crawl_result, run_id=manual__2024-08-14T15:08:23.254750+00:00, execution_date=20240814T150823, start_date=20240814T150827, end_date=20240814T150840
+[2024-08-15T00:08:40.519+0900] {standard_task_runner.py:110} ERROR - Failed to execute job 70 for task crawl_result ('comment'; 43224)
+[2024-08-15T00:08:40.555+0900] {local_task_job_runner.py:243} INFO - Task exited with return code 1
+[2024-08-15T00:08:40.582+0900] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2024-08-15T00:08:40.604+0900] {local_task_job_runner.py:222} INFO - ::endgroup::

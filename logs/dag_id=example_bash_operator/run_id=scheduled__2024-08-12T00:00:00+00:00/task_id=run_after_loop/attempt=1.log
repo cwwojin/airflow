@@ -1,0 +1,50 @@
+[2024-08-13T14:10:29.609+0900] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-08-13T14:10:29.618+0900] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: example_bash_operator.run_after_loop scheduled__2024-08-12T00:00:00+00:00 [queued]>
+[2024-08-13T14:10:29.621+0900] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: example_bash_operator.run_after_loop scheduled__2024-08-12T00:00:00+00:00 [queued]>
+[2024-08-13T14:10:29.621+0900] {taskinstance.py:2306} INFO - Starting attempt 1 of 1
+[2024-08-13T14:10:29.632+0900] {taskinstance.py:2330} INFO - Executing <Task(BashOperator): run_after_loop> on 2024-08-12 00:00:00+00:00
+[2024-08-13T14:10:29.634+0900] {standard_task_runner.py:64} INFO - Started process 4789 to run task
+[2024-08-13T14:10:29.636+0900] {standard_task_runner.py:90} INFO - Running: ['airflow', 'tasks', 'run', 'example_bash_operator', 'run_after_loop', 'scheduled__2024-08-12T00:00:00+00:00', '--job-id', '7', '--raw', '--subdir', '/home/ubuntu/miniconda3/envs/airflow-env/lib/python3.8/site-packages/airflow/example_dags/example_bash_operator.py', '--cfg-path', '/tmp/tmp86bc2czi']
+[2024-08-13T14:10:29.636+0900] {standard_task_runner.py:91} INFO - Job 7: Subtask run_after_loop
+[2024-08-13T14:10:29.668+0900] {task_command.py:426} INFO - Running <TaskInstance: example_bash_operator.run_after_loop scheduled__2024-08-12T00:00:00+00:00 [running]> on host demo-server
+[2024-08-13T14:10:29.710+0900] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='example_bash_operator' AIRFLOW_CTX_TASK_ID='run_after_loop' AIRFLOW_CTX_EXECUTION_DATE='2024-08-12T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-08-12T00:00:00+00:00'
+[2024-08-13T14:10:29.712+0900] {taskinstance.py:430} INFO - ::endgroup::
+[2024-08-13T14:10:29.713+0900] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2024-08-13T14:10:29.713+0900] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', "ls -alh --color=always / && echo https://airflow.apache.org/  && echo 'some <code>html</code>'"]
+[2024-08-13T14:10:29.718+0900] {subprocess.py:86} INFO - Output:
+[2024-08-13T14:10:29.725+0900] {subprocess.py:93} INFO - 합계 2.1G
+[2024-08-13T14:10:29.725+0900] {subprocess.py:93} INFO - drwxr-xr-x  20 root root 4.0K  5월 25 23:14 [0m[01;34m.[0m
+[2024-08-13T14:10:29.725+0900] {subprocess.py:93} INFO - drwxr-xr-x  20 root root 4.0K  5월 25 23:14 [01;34m..[0m
+[2024-08-13T14:10:29.725+0900] {subprocess.py:93} INFO - lrwxrwxrwx   1 root root    7  5월 25 23:11 [01;36mbin[0m -> [01;34musr/bin[0m
+[2024-08-13T14:10:29.725+0900] {subprocess.py:93} INFO - drwxr-xr-x   4 root root 4.0K  5월 25 23:33 [01;34mboot[0m
+[2024-08-13T14:10:29.725+0900] {subprocess.py:93} INFO - drwxrwxr-x   2 root root 4.0K  5월 25 23:14 [01;34mcdrom[0m
+[2024-08-13T14:10:29.725+0900] {subprocess.py:93} INFO - drwxr-xr-x  19 root root 4.1K  8월 13 13:13 [01;34mdev[0m
+[2024-08-13T14:10:29.725+0900] {subprocess.py:93} INFO - drwxr-xr-x 130 root root  12K  5월 25 23:50 [01;34metc[0m
+[2024-08-13T14:10:29.725+0900] {subprocess.py:93} INFO - drwxr-xr-x   3 root root 4.0K  5월 25 23:19 [01;34mhome[0m
+[2024-08-13T14:10:29.725+0900] {subprocess.py:93} INFO - lrwxrwxrwx   1 root root    7  5월 25 23:11 [01;36mlib[0m -> [01;34musr/lib[0m
+[2024-08-13T14:10:29.725+0900] {subprocess.py:93} INFO - lrwxrwxrwx   1 root root    9  5월 25 23:11 [01;36mlib32[0m -> [01;34musr/lib32[0m
+[2024-08-13T14:10:29.725+0900] {subprocess.py:93} INFO - lrwxrwxrwx   1 root root    9  5월 25 23:11 [01;36mlib64[0m -> [01;34musr/lib64[0m
+[2024-08-13T14:10:29.725+0900] {subprocess.py:93} INFO - lrwxrwxrwx   1 root root   10  5월 25 23:11 [01;36mlibx32[0m -> [01;34musr/libx32[0m
+[2024-08-13T14:10:29.725+0900] {subprocess.py:93} INFO - drwx------   2 root root  16K  5월 25 23:11 [01;34mlost+found[0m
+[2024-08-13T14:10:29.725+0900] {subprocess.py:93} INFO - drwxr-xr-x   3 root root 4.0K  5월 25 23:44 [01;34mmedia[0m
+[2024-08-13T14:10:29.725+0900] {subprocess.py:93} INFO - drwxr-xr-x   2 root root 4.0K  2월 21 04:22 [01;34mmnt[0m
+[2024-08-13T14:10:29.725+0900] {subprocess.py:93} INFO - drwxr-xr-x   2 root root 4.0K  2월 21 04:22 [01;34mopt[0m
+[2024-08-13T14:10:29.726+0900] {subprocess.py:93} INFO - dr-xr-xr-x 273 root root    0  8월 13 13:08 [01;34mproc[0m
+[2024-08-13T14:10:29.726+0900] {subprocess.py:93} INFO - drwx------   5 root root 4.0K  5월 25 23:48 [01;34mroot[0m
+[2024-08-13T14:10:29.726+0900] {subprocess.py:93} INFO - drwxr-xr-x  34 root root  940  8월 13 13:50 [01;34mrun[0m
+[2024-08-13T14:10:29.726+0900] {subprocess.py:93} INFO - lrwxrwxrwx   1 root root    8  5월 25 23:11 [01;36msbin[0m -> [01;34musr/sbin[0m
+[2024-08-13T14:10:29.726+0900] {subprocess.py:93} INFO - drwxr-xr-x  11 root root 4.0K  2월 21 04:28 [01;34msnap[0m
+[2024-08-13T14:10:29.726+0900] {subprocess.py:93} INFO - drwxr-xr-x   2 root root 4.0K  2월 21 04:22 [01;34msrv[0m
+[2024-08-13T14:10:29.726+0900] {subprocess.py:93} INFO - -rw-------   1 root root 2.0G  5월 25 23:11 swapfile
+[2024-08-13T14:10:29.726+0900] {subprocess.py:93} INFO - dr-xr-xr-x  13 root root    0  8월 13 13:08 [01;34msys[0m
+[2024-08-13T14:10:29.726+0900] {subprocess.py:93} INFO - drwxrwxrwt  20 root root  12K  8월 13 14:10 [30;42mtmp[0m
+[2024-08-13T14:10:29.726+0900] {subprocess.py:93} INFO - drwxr-xr-x  14 root root 4.0K  2월 21 04:22 [01;34musr[0m
+[2024-08-13T14:10:29.726+0900] {subprocess.py:93} INFO - drwxr-xr-x  14 root root 4.0K  2월 21 04:27 [01;34mvar[0m
+[2024-08-13T14:10:29.726+0900] {subprocess.py:93} INFO - https://airflow.apache.org/
+[2024-08-13T14:10:29.726+0900] {subprocess.py:93} INFO - some <code>html</code>
+[2024-08-13T14:10:29.726+0900] {subprocess.py:97} INFO - Command exited with return code 0
+[2024-08-13T14:10:29.726+0900] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-08-13T14:10:29.742+0900] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=example_bash_operator, task_id=run_after_loop, run_id=scheduled__2024-08-12T00:00:00+00:00, execution_date=20240812T000000, start_date=20240813T051029, end_date=20240813T051029
+[2024-08-13T14:10:29.774+0900] {local_task_job_runner.py:243} INFO - Task exited with return code 0
+[2024-08-13T14:10:29.781+0900] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2024-08-13T14:10:29.782+0900] {local_task_job_runner.py:222} INFO - ::endgroup::

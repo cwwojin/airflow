@@ -1,0 +1,2 @@
+bootstrap,max_depth,min_samples_leaf,min_samples_split,n_estimators,best_score
+False,,2,5,200,0.7696486746365476

@@ -1,0 +1,17 @@
+[2024-08-14T10:39:42.039+0900] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-08-14T10:39:42.044+0900] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: kakao-pipeline.preprocess_result manual__2024-08-14T01:39:34.106161+00:00 [queued]>
+[2024-08-14T10:39:42.048+0900] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: kakao-pipeline.preprocess_result manual__2024-08-14T01:39:34.106161+00:00 [queued]>
+[2024-08-14T10:39:42.048+0900] {taskinstance.py:2306} INFO - Starting attempt 1 of 1
+[2024-08-14T10:39:42.061+0900] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): preprocess_result> on 2024-08-14 01:39:34.106161+00:00
+[2024-08-14T10:39:42.065+0900] {standard_task_runner.py:64} INFO - Started process 8905 to run task
+[2024-08-14T10:39:42.067+0900] {standard_task_runner.py:90} INFO - Running: ['airflow', 'tasks', 'run', 'kakao-pipeline', 'preprocess_result', 'manual__2024-08-14T01:39:34.106161+00:00', '--job-id', '16', '--raw', '--subdir', 'DAGS_FOLDER/kakao-pipeline.py', '--cfg-path', '/tmp/tmpx4iy45is']
+[2024-08-14T10:39:42.068+0900] {standard_task_runner.py:91} INFO - Job 16: Subtask preprocess_result
+[2024-08-14T10:39:42.096+0900] {task_command.py:426} INFO - Running <TaskInstance: kakao-pipeline.preprocess_result manual__2024-08-14T01:39:34.106161+00:00 [running]> on host demo-server
+[2024-08-14T10:39:42.144+0900] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='kakao-pipeline' AIRFLOW_CTX_TASK_ID='preprocess_result' AIRFLOW_CTX_EXECUTION_DATE='2024-08-14T01:39:34.106161+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-08-14T01:39:34.106161+00:00'
+[2024-08-14T10:39:42.145+0900] {taskinstance.py:430} INFO - ::endgroup::
+[2024-08-14T10:39:42.155+0900] {python.py:237} INFO - Done. Returned value was: None
+[2024-08-14T10:39:42.156+0900] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-08-14T10:39:42.158+0900] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=kakao-pipeline, task_id=preprocess_result, run_id=manual__2024-08-14T01:39:34.106161+00:00, execution_date=20240814T013934, start_date=20240814T013942, end_date=20240814T013942
+[2024-08-14T10:39:42.176+0900] {local_task_job_runner.py:243} INFO - Task exited with return code 0
+[2024-08-14T10:39:42.183+0900] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2024-08-14T10:39:42.183+0900] {local_task_job_runner.py:222} INFO - ::endgroup::

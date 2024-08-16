@@ -1,0 +1,15 @@
+[2024-08-16T09:12:33.137+0900] {processor.py:161} INFO - Started process (PID=1791) to work on /home/ubuntu/airflow/dags/example/modeling.py
+[2024-08-16T09:12:33.140+0900] {processor.py:830} INFO - Processing file /home/ubuntu/airflow/dags/example/modeling.py for tasks to queue
+[2024-08-16T09:12:33.144+0900] {logging_mixin.py:188} INFO - [2024-08-16T09:12:33.143+0900] {dagbag.py:545} INFO - Filling up the DagBag from /home/ubuntu/airflow/dags/example/modeling.py
+[2024-08-16T09:12:36.731+0900] {processor.py:842} WARNING - No viable dags retrieved from /home/ubuntu/airflow/dags/example/modeling.py
+[2024-08-16T09:12:36.741+0900] {processor.py:183} INFO - Processing /home/ubuntu/airflow/dags/example/modeling.py took 3.620 seconds
+[2024-08-16T09:15:25.964+0900] {processor.py:161} INFO - Started process (PID=2575) to work on /home/ubuntu/airflow/dags/example/modeling.py
+[2024-08-16T09:15:25.967+0900] {processor.py:830} INFO - Processing file /home/ubuntu/airflow/dags/example/modeling.py for tasks to queue
+[2024-08-16T09:15:25.969+0900] {logging_mixin.py:188} INFO - [2024-08-16T09:15:25.968+0900] {dagbag.py:545} INFO - Filling up the DagBag from /home/ubuntu/airflow/dags/example/modeling.py
+[2024-08-16T09:15:26.958+0900] {processor.py:842} WARNING - No viable dags retrieved from /home/ubuntu/airflow/dags/example/modeling.py
+[2024-08-16T09:15:26.965+0900] {processor.py:183} INFO - Processing /home/ubuntu/airflow/dags/example/modeling.py took 1.009 seconds
+[2024-08-16T09:18:41.597+0900] {processor.py:161} INFO - Started process (PID=2654) to work on /home/ubuntu/airflow/dags/example/modeling.py
+[2024-08-16T09:18:41.599+0900] {processor.py:830} INFO - Processing file /home/ubuntu/airflow/dags/example/modeling.py for tasks to queue
+[2024-08-16T09:18:41.600+0900] {logging_mixin.py:188} INFO - [2024-08-16T09:18:41.600+0900] {dagbag.py:545} INFO - Filling up the DagBag from /home/ubuntu/airflow/dags/example/modeling.py
+[2024-08-16T09:18:42.339+0900] {processor.py:842} WARNING - No viable dags retrieved from /home/ubuntu/airflow/dags/example/modeling.py
+[2024-08-16T09:18:42.345+0900] {processor.py:183} INFO - Processing /home/ubuntu/airflow/dags/example/modeling.py took 0.754 seconds

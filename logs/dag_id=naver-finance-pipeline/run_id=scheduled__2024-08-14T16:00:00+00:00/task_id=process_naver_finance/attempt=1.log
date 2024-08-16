@@ -1,0 +1,18 @@
+[2024-08-15T02:17:23.499+0900] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-08-15T02:17:23.509+0900] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: naver-finance-pipeline.process_naver_finance scheduled__2024-08-14T16:00:00+00:00 [queued]>
+[2024-08-15T02:17:23.512+0900] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: naver-finance-pipeline.process_naver_finance scheduled__2024-08-14T16:00:00+00:00 [queued]>
+[2024-08-15T02:17:23.513+0900] {taskinstance.py:2306} INFO - Starting attempt 1 of 1
+[2024-08-15T02:17:23.527+0900] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): process_naver_finance> on 2024-08-14 16:00:00+00:00
+[2024-08-15T02:17:23.531+0900] {standard_task_runner.py:64} INFO - Started process 51253 to run task
+[2024-08-15T02:17:23.534+0900] {standard_task_runner.py:90} INFO - Running: ['airflow', 'tasks', 'run', 'naver-finance-pipeline', 'process_naver_finance', 'scheduled__2024-08-14T16:00:00+00:00', '--job-id', '93', '--raw', '--subdir', 'DAGS_FOLDER/lecture_practice/soup-pipeline.py', '--cfg-path', '/tmp/tmpub0s9jv8']
+[2024-08-15T02:17:23.534+0900] {standard_task_runner.py:91} INFO - Job 93: Subtask process_naver_finance
+[2024-08-15T02:17:23.566+0900] {task_command.py:426} INFO - Running <TaskInstance: naver-finance-pipeline.process_naver_finance scheduled__2024-08-14T16:00:00+00:00 [running]> on host demo-server
+[2024-08-15T02:17:23.613+0900] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='naver-finance-pipeline' AIRFLOW_CTX_TASK_ID='process_naver_finance' AIRFLOW_CTX_EXECUTION_DATE='2024-08-14T16:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-08-14T16:00:00+00:00'
+[2024-08-15T02:17:23.614+0900] {taskinstance.py:430} INFO - ::endgroup::
+[2024-08-15T02:17:23.621+0900] {logging_mixin.py:188} INFO - [[{'c_name': 'ЙЬБЙ USD', 'exchange_rate': '1,359.50', 'change': ' 5.50', 'updown': 'ЧЯЖє'}, {'c_name': 'РЯКЛ JPY(100ПЃ)', 'exchange_rate': '925.11', 'change': ' 4.95', 'updown': 'ЧЯЖє'}, {'c_name': 'РЏЗДПЌЧе EUR', 'exchange_rate': '1,498.10', 'change': ' 2.92', 'updown': 'ЧЯЖє'}, {'c_name': 'СпБЙ CNY', 'exchange_rate': '190.37', 'change': ' 0.59', 'updown': 'ЧЯЖє'}]]
+[2024-08-15T02:17:23.625+0900] {python.py:237} INFO - Done. Returned value was: None
+[2024-08-15T02:17:23.626+0900] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-08-15T02:17:23.628+0900] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=naver-finance-pipeline, task_id=process_naver_finance, run_id=scheduled__2024-08-14T16:00:00+00:00, execution_date=20240814T160000, start_date=20240814T171723, end_date=20240814T171723
+[2024-08-15T02:17:23.647+0900] {local_task_job_runner.py:243} INFO - Task exited with return code 0
+[2024-08-15T02:17:23.654+0900] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2024-08-15T02:17:23.654+0900] {local_task_job_runner.py:222} INFO - ::endgroup::

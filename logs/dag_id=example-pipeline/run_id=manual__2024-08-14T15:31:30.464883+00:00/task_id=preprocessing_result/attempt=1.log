@@ -1,0 +1,47 @@
+[2024-08-15T00:31:42.919+0900] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-08-15T00:31:42.937+0900] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: example-pipeline.preprocessing_result manual__2024-08-14T15:31:30.464883+00:00 [queued]>
+[2024-08-15T00:31:42.945+0900] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: example-pipeline.preprocessing_result manual__2024-08-14T15:31:30.464883+00:00 [queued]>
+[2024-08-15T00:31:42.946+0900] {taskinstance.py:2306} INFO - Starting attempt 1 of 1
+[2024-08-15T00:31:42.971+0900] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): preprocessing_result> on 2024-08-14 15:31:30.464883+00:00
+[2024-08-15T00:31:42.979+0900] {standard_task_runner.py:64} INFO - Started process 45582 to run task
+[2024-08-15T00:31:42.983+0900] {standard_task_runner.py:90} INFO - Running: ['airflow', 'tasks', 'run', 'example-pipeline', 'preprocessing_result', 'manual__2024-08-14T15:31:30.464883+00:00', '--job-id', '77', '--raw', '--subdir', 'DAGS_FOLDER/example-pipeline.py', '--cfg-path', '/tmp/tmp17ox61bl']
+[2024-08-15T00:31:42.984+0900] {standard_task_runner.py:91} INFO - Job 77: Subtask preprocessing_result
+[2024-08-15T00:31:43.028+0900] {task_command.py:426} INFO - Running <TaskInstance: example-pipeline.preprocessing_result manual__2024-08-14T15:31:30.464883+00:00 [running]> on host demo-server
+[2024-08-15T00:31:43.107+0900] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='example-pipeline' AIRFLOW_CTX_TASK_ID='preprocessing_result' AIRFLOW_CTX_EXECUTION_DATE='2024-08-14T15:31:30.464883+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-08-14T15:31:30.464883+00:00'
+[2024-08-15T00:31:43.109+0900] {taskinstance.py:430} INFO - ::endgroup::
+[2024-08-15T00:31:43.112+0900] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-08-15T00:31:43.113+0900] {taskinstance.py:2905} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/ubuntu/miniconda3/envs/airflow-env/lib/python3.8/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/ubuntu/miniconda3/envs/airflow-env/lib/python3.8/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/ubuntu/miniconda3/envs/airflow-env/lib/python3.8/site-packages/airflow/models/baseoperator.py", line 401, in wrapper
+    return func(self, *args, **kwargs)
+  File "/home/ubuntu/miniconda3/envs/airflow-env/lib/python3.8/site-packages/airflow/operators/python.py", line 235, in execute
+    return_value = self.execute_callable()
+  File "/home/ubuntu/miniconda3/envs/airflow-env/lib/python3.8/site-packages/airflow/operators/python.py", line 252, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/home/ubuntu/airflow/dags/example/preprocessing.py", line 12, in preprocessing
+    comment_df = pd.read_csv("/home/ubuntu/airflow/dags/tmp/crawl_df.csv")
+  File "/home/ubuntu/miniconda3/envs/airflow-env/lib/python3.8/site-packages/pandas/util/_decorators.py", line 211, in wrapper
+    return func(*args, **kwargs)
+  File "/home/ubuntu/miniconda3/envs/airflow-env/lib/python3.8/site-packages/pandas/util/_decorators.py", line 317, in wrapper
+    return func(*args, **kwargs)
+  File "/home/ubuntu/miniconda3/envs/airflow-env/lib/python3.8/site-packages/pandas/io/parsers/readers.py", line 950, in read_csv
+    return _read(filepath_or_buffer, kwds)
+  File "/home/ubuntu/miniconda3/envs/airflow-env/lib/python3.8/site-packages/pandas/io/parsers/readers.py", line 605, in _read
+    parser = TextFileReader(filepath_or_buffer, **kwds)
+  File "/home/ubuntu/miniconda3/envs/airflow-env/lib/python3.8/site-packages/pandas/io/parsers/readers.py", line 1442, in __init__
+    self._engine = self._make_engine(f, self.engine)
+  File "/home/ubuntu/miniconda3/envs/airflow-env/lib/python3.8/site-packages/pandas/io/parsers/readers.py", line 1747, in _make_engine
+    return mapping[engine](f, **self.options)
+  File "/home/ubuntu/miniconda3/envs/airflow-env/lib/python3.8/site-packages/pandas/io/parsers/c_parser_wrapper.py", line 92, in __init__
+    self._reader = parsers.TextReader(src, **kwds)
+  File "pandas/_libs/parsers.pyx", line 554, in pandas._libs.parsers.TextReader.__cinit__
+pandas.errors.EmptyDataError: No columns to parse from file
+[2024-08-15T00:31:43.120+0900] {taskinstance.py:1206} INFO - Marking task as FAILED. dag_id=example-pipeline, task_id=preprocessing_result, run_id=manual__2024-08-14T15:31:30.464883+00:00, execution_date=20240814T153130, start_date=20240814T153142, end_date=20240814T153143
+[2024-08-15T00:31:43.139+0900] {standard_task_runner.py:110} ERROR - Failed to execute job 77 for task preprocessing_result (No columns to parse from file; 45582)
+[2024-08-15T00:31:43.180+0900] {local_task_job_runner.py:243} INFO - Task exited with return code 1
+[2024-08-15T00:31:43.202+0900] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2024-08-15T00:31:43.218+0900] {local_task_job_runner.py:222} INFO - ::endgroup::
