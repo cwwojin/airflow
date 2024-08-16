@@ -11,31 +11,24 @@ from example.preprocessing import preprocessing
 from example.modeling import modeling
 from example.final import final_train
 
-defalut_args = {
-    "start_date": datetime(2024, 1, 1)
-}
+defalut_args = {"start_date": datetime(2024, 1, 1)}
 
 with DAG(
-    dag_id="example-pipeline",
+    dag_id="project-pipeline",
     schedule_interval="@daily",
     default_args=defalut_args,
     tags=["kakao", "review", "example"],
-    catchup=False
+    catchup=False,
 ) as dag:
-    
-    crawl_result = PythonOperator(
-        task_id="crawl_result",
-        python_callable=crawl_data
-    )
+
+    crawl_result = PythonOperator(task_id="crawl_result", python_callable=crawl_data)
 
     preprocessing_result = PythonOperator(
-        task_id="preprocessing_result",
-        python_callable=preprocessing
+        task_id="preprocessing_result", python_callable=preprocessing
     )
 
     modeling_result = PythonOperator(
-        task_id="modeling_result",
-        python_callable=modeling
+        task_id="modeling_result", python_callable=modeling
     )
 
     # final_result = PythonOperator(

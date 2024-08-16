@@ -1,3 +1,13 @@
+# Misc
 data
 *.pyc
 __pycache__
+
+# Airflow
+logs
+airflow.cfg
+airflow.db
+webserver_config.py
+
+# Env
+.env
